@@ -2,25 +2,23 @@
 using namespace std;
 void solve() {
     int n;
-    vector<int> a, pos, vis;
+    vector<int> a, pos, vis, f, pre;
     cin >> n;
     a.resize(n + 1);
     pos.resize(n + 1);
     vis.resize(n + 1);
+    f.resize(n + 1);
+    pre.resize(n + 1);
+    pre[0] = 0;
+    int ans = 0;
     for (int i = 1; i <= n; i++) {
         cin >> a[i];
         pos[a[i]] = i;
-        vis[i] = 0;
+        if (a[i] <= i) ans++;
     }
-    int ans = 0, minn = n + 1;
-    for (int i = n; i > 0; i--) {
-        int f = pos[i];
-        if (f <= i && !vis[f]) {
-            ans++;
-            vis[f] = 1;
-        }
+    // for (int i = 2; i <= n; i++) {
 
-    }
+    // }
     cout << ans << endl;
     return;
 }
